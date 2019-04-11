@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>订单管理系统</title>
+    <style>
+      .container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .inner {
+        overflow: hidden;
+        width: 360px;
+        color: #303133;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+      }
+
+      .title {
+        font-weight: 300;
+        font-size: 24px;
+        color: #fff;
+      }
+
+      .el-form-item {
+        margin-bottom: 20px;
+      }
+
+      .el-input {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        font-size: 14px;
+      }
+
+      .el-input:before {
+        display: table;
+        content: '';
+      }
+
+      .el-input__inner {
+        padding: 0 15px;
+        width: 80%;
+        height: 40px;
+        background-color: #fff;
+        background-image: none;
+        font-size: inherit;
+        line-height: 40px;
+        transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      .el-button,
+      .el-input__inner {
+        display: inline-block;
+        box-sizing: border-box;
+        outline: 0;
+        border: 1px solid #dcdfe6;
+        border-radius: 4px;
+        color: #606266;
+        -webkit-appearance: none;
+      }
+
+      .el-button {
+        margin: 0;
+        padding: 9pt 20px;
+        border-color: #dcdfe6;
+        background: #fff;
+        text-align: center;
+        white-space: nowrap;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1;
+        cursor: pointer;
+        transition: 0.1s;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+
+      .el-button--primary {
+        border-color: #409eff;
+        background-color: #409eff;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+
+      .el-button--primary:focus,
+      .el-button--primary:hover {
+        border-color: #66b1ff;
+        background: #66b1ff;
+        color: #fff;
+      }
+
+      #particles-js {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        margin: 0;
+        padding: 0;
+        background: #2e3c56;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="particles-js"></div>
+    <div class="container">
+      <form class="inner" action="/ordersys/login" method="post">
+        <p class="title">欢迎登录订单管理系统</p>
+        <div class="el-form-item">
+          <div class="el-input">
+            <input
+              name="username"
+              type="text"
+              class="el-input__inner"
+              placeholder="用户名"
+              required
+            />
+          </div>
+        </div>
+        <div class="el-form-item">
+          <div class="el-input">
+            <input
+              name="password"
+              type="password"
+              class="el-input__inner"
+              placeholder="密码"
+              required
+            />
+          </div>
+        </div>
+        <button type="submit" class="el-button el-button--primary">
+          <span>登录</span>
+        </button>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+      particlesJS('particles-js', {
+        particles: {
+          number: {
+            value: 80,
+            density: {
+              enable: true,
+              value_area: 800
+            }
+          },
+          color: {
+            value: '#66b1ff'
+          },
+          shape: {
+            type: 'circle',
+            stroke: {
+              width: 0,
+              color: '#000000'
+            },
+            polygon: {
+              nb_sides: 5
+            },
+            image: {
+              src: 'img/github.svg',
+              width: 100,
+              height: 100
+            }
+          },
+          opacity: {
+            value: 0.5,
+            random: false,
+            anim: {
+              enable: false,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false
+            }
+          },
+          size: {
+            value: 3,
+            random: true,
+            anim: {
+              enable: false,
+              speed: 40,
+              size_min: 0.1,
+              sync: false
+            }
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: '#66b1ff',
+            opacity: 0.4,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 6,
+            direction: 'none',
+            random: false,
+            straight: false,
+            out_mode: 'out',
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200
+            }
+          }
+        },
+        interactivity: {
+          detect_on: 'canvas',
+          events: {
+            onhover: {
+              enable: true,
+              mode: 'repulse'
+            },
+            onclick: {
+              enable: true,
+              mode: 'push'
+            },
+            resize: true
+          },
+          modes: {
+            grab: {
+              distance: 400,
+              line_linked: {
+                opacity: 1
+              }
+            },
+            bubble: {
+              distance: 400,
+              size: 40,
+              duration: 2,
+              opacity: 8,
+              speed: 3
+            },
+            repulse: {
+              distance: 200
+            },
+            push: {
+              particles_nb: 4
+            },
+            remove: {
+              particles_nb: 2
+            }
+          }
+        },
+        retina_detect: true,
+        config_demo: {
+          hide_card: false,
+          background_color: '#b61924',
+          background_image: '',
+          background_position: '50% 50%',
+          background_repeat: 'no-repeat',
+          background_size: 'cover'
+        }
+      })
+    </script>
+  </body>
+</html>
